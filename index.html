@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Mon Super Blog</title>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">
+            <img src="./assets/logo.png" alt="">
+        </div>
+        <div class="links">
+            <ul>
+                <li class="selected-link">Home</li>
+                <li>Blog</li>
+                <li>Ressources</li>
+                <li>Authors</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+    </nav>
+    <!-- END NAVBAR -->
+
+    <!-- MAIN SECTION -->
+    <main>
+        <div class="content-wrapper">
+            <h1 class="main-title">The Blog</h1>
+            <div class="main-article">
+                <img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    alt="" srcset="">
+                <div class="main-article-details">
+                    <span class="date">2021.09.18</span>
+                    <h2 class="article-title">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h2>
+                    <p class="article-content">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem perspiciatis explicabo dolores?
+                        Natus
+                        nesciunt nemo modi odio fugiat recusandae error!
+                    </p>
+                </div>
+            </div>
+
+            <!-- GRID OF ARTICLES -->
+            <div id="articles" class="grid-articles-wrapper">
+
+            </div>
+            <!-- END GRID -->
+        </div>
+    </main>
+    <!-- END MAIN SECTION -->
+    <button data-bs-toggle="modal" data-bs-target="#postForm" class="fab">
+        +
+    </button>
+
+    <!-- MODAL -->
+    <div class="modal fade" id="postForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Formulaire d'ajout de post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="post-form">
+                    <div class="modal-body">
+                        <div id="spinner" style="display: none;" class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div id="form-body">
+                            <div class="mb-3">
+                                <label class="form-label">Post Title</label>
+                                <input type="text" class="form-control" id="input-title">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Post Content</label>
+                                <textarea class="form-control" placeholder="Leave a comment here" id="input-content"
+                                    style="height: 100px"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="alert" style="display: none; position: fixed; bottom : 50px; left:50%; transform: translateX(-50%);"
+        class="alert alert-success" role="alert">
+        A simple success alert—check it out!
+    </div>
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
+        integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous">
+    </script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
