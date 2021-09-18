@@ -8,7 +8,7 @@ const postForm = document.getElementById('post-form')
 /**
  * function to get posts
 **/
-const getPosts = () => {
+const getPosts = async () => {
     // Fonction pour faire appel à une API
     // Prend en paramètre (url, config?)
     // Retourne une promesse (Promise)
@@ -24,6 +24,16 @@ const getPosts = () => {
             posts = data
             // Injecter dans l'html avec la fonction
             injectHtml(articlesDiv, posts)
+            
+            // Added event listener for submit form
+            postForm.addEventListener('submit', submitPost)
+            const cards = document.getElementsByClassName('article-card')
+            for (let index = 0; index < cards.length; index++) {
+                const element = cards[index];
+                element.onmouseover = () => element.children[0].style.display = 'grid'
+                element.onmouseout = () => element.children[0].style.display = 'none'
+
+            }
         })
 }
 /**
@@ -38,6 +48,9 @@ const injectHtml = (div, data) => {
         const { title, body, id } = data[index];
         // On concatène à la variable html l'html d'une card
         html += `<div id="article-${id}" class="article-card">
+                    <div class="delete-button">
+                            <i class="fas fa-times"></i>
+                    </div>
                     <img class="article-image" src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                         alt="" srcset="">
                     <div class="article-details">
@@ -102,11 +115,13 @@ const submitPost = (event) => {
 
 }
 
+
 // ----------------------------
 // THIS PART EXECUTES ON PAGE LOAD
 // ----------------------------
 
 // Get Posts Data and fill posts array
-getPosts();
-// Added event listener for submit form
-postForm.addEventListener('submit', submitPost)
+getPosts()
+
+
+// CHERCHEZ COMMENT FAIRE UNE PULL REQUEST SUR GIT !!!!!!!!!!!
